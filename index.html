@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truco Venezolano</title>
+    <!-- Aquí vinculamos los estilos que crearemos en el Paso 3 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🇻🇪 Truco Venezolano - Mesa de Pruebas</h1>
+    
+    <div class="mesa">
+        <!-- El botón para activar la magia -->
+        <button id="btn-repartir">Repartir Cartas</button>
+
+        <!-- El espacio de la Vira -->
+        <div class="zona">
+            <h3>La Vira</h3>
+            <div id="vira-display" class="carta-vacia">-</div>
+        </div>
+
+        <!-- El espacio de tus cartas -->
+        <div class="zona">
+            <h3>Tu Mano</h3>
+            <div id="mano-container" class="tus-cartas">
+                <p>Presiona el botón para cantar '¡Reparte!'</p>
+            </div>
+            <!-- Aquí saldrá si tienes envido o flor -->
+            <div id="envido-display" class="cantos"></div>
+        </div>
+    </div>
+
+    <!-- Aquí vinculamos el cerebro del juego que crearemos en el Paso 4 -->
+    <script src="app.js"></script>
+</body>
+</html>
