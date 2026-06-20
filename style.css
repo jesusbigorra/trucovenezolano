@@ -1,4 +1,113 @@
-/* Orla tradicional de la baraja española */
+body {
+    background-color: #064e3b;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* La Mesa Completa con marco de madera */
+.mesa-truco {
+    width: 100%;
+    max-width: 850px;
+    height: 90vh;
+    background: radial-gradient(circle, #0f766e 20%, #115e59 80%);
+    border: 16px solid #451a03;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 40px rgba(0,0,0,0.8), 0px 10px 30px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Contenedores de Cartas */
+.contenedor-cartas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    min-height: 130px;
+    align-items: center;
+    width: 100%;
+}
+
+.zona-ia { width: 100%; }
+.zona-inferior {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Campo de batalla central */
+.zona-central {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed rgba(255,255,255,0.1);
+    border-radius: 20px;
+    margin: 10px 20px;
+    position: relative;
+}
+
+.tapete-batalla {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Botón Principal */
+.btn-principal {
+    background: linear-gradient(#b45309, #78350f);
+    color: #fef08a;
+    border: 2px solid #fef08a;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+    transition: 0.2s;
+    z-index: 10;
+}
+
+.btn-principal:hover {
+    transform: scale(1.05);
+    background: linear-gradient(#d97706, #92400e);
+}
+
+/* Diseño de las Cartas */
+.carta {
+    background-color: #fffdf6;
+    color: #000;
+    width: 90px;
+    height: 140px;
+    border-radius: 6px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px;
+    box-sizing: border-box;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+/* Estilo interno simulando baraja tradicional */
 .orla-interna {
     border: 1px solid rgba(0,0,0,0.15);
     height: 100%;
@@ -11,7 +120,9 @@
     border-radius: 4px;
 }
 
-/* Distribución de los símbolos en el centro de la carta */
+.carta .top-left { text-align: left; font-size: 1.1rem; }
+.carta .bottom-right { text-align: right; font-size: 1.1rem; transform: rotate(180deg); }
+
 .pinta-centro-patron {
     display: flex;
     flex-wrap: wrap;
@@ -19,13 +130,12 @@
     align-content: center;
     gap: 4px;
     flex-grow: 1;
-    max-height: 70px;
-    overflow: hidden;
+    max-height: 80px;
 }
 
 .icono-mini {
-    font-size: 1rem;
-    width: 18px;
+    font-size: 0.9rem;
+    width: 16px;
     text-align: center;
 }
 
@@ -33,7 +143,51 @@
     font-size: 2.2rem;
 }
 
-/* Efecto al pasar el mouse sobre tus cartas */
+/* Reverso para Oponente y Mazo */
+.carta-reverso {
+    width: 90px;
+    height: 140px;
+    border-radius: 6px;
+    background: repeating-linear-gradient(45deg, #991b1b, #991b1b 5px, #7f1d1d 5px, #7f1d1d 10px);
+    border: 3px solid #fff;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Colores de las Pintelgas */
+.espada { color: #1e40af; }
+.basto { color: #065f46; }
+.oro { color: #854d0e; }
+.copa { color: #991b1b; }
+
+/* Posición del Mazo y Vira abajo a la derecha */
+.esquina-mazo {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+.deck-stack {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.mazo-base {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    transform: rotate(-10deg);
+    z-index: 2;
+}
+
+.vira-volteada {
+    position: absolute;
+    left: 35px;
+    top: 10px;
+    transform: rotate(15deg);
+    z-index: 3;
+}
+
 #mano-container .carta {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -43,3 +197,10 @@
     transform: translateY(-15px) scale(1.05);
     box-shadow: 0px 10px 20px rgba(0,0,0,0.6);
 }
+
+.indicador-inicio {
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    font-style: italic;
+}
+   
